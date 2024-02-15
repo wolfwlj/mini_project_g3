@@ -6,15 +6,24 @@ public class Monster
     public string MonsterName;
     public int Power = 30
     public int Health = 150;
-    public Weapon Equipped;
+    public bool Equipped;
 
-    public Monster(int id, string monsterName, int power, Weapon equipped, int health)
+    public Monster(int id, string monsterName, int power, bool equipped, int health)
     {
         ID = id;
         MonsterName = monsterName;
         Power = power;
         Equipped = equipped;
         Health = health;
+    }
+
+    public int Attack()
+    {
+        if (Equipped)
+        {
+            return Damage * 2;
+        }
+        return Damage;
     }
 
 }

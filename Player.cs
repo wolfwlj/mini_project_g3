@@ -3,7 +3,7 @@ namespace miniproj
 public class Player
 {
     public string PlayerName;
-    public Weapon Equipped;
+    public bool Equipped;
     public int HealthPoints = 100;
     public int Damage = 10;
     public int PlayerLevel = 1;
@@ -40,5 +40,14 @@ public class Player
         }
         HealthPoints += hp;
         return $"Good healing! Your are now at {HealthPoints} HP";
+    }
+
+    public int Attack()
+    {
+        if (Equipped)
+        {
+            return Damage * 2;
+        }
+        return Damage;
     }
 }

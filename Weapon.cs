@@ -2,7 +2,7 @@
 namespace miniproj
 public class Weapon
 {
-    public int AddedPower;
+    public int AddedPower = 10;
     public bool IsEquipped;
 
     public Weapon(int addedPower, bool isEquipped)
