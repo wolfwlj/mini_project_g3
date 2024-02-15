@@ -1,3 +1,5 @@
+
+namespace miniproj
 public class Weapon
 {
     public int AddedPower;

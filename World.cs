@@ -1,3 +1,5 @@
+
+namespace miniproj
 public static class World
 {
 
