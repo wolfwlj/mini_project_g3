@@ -11,6 +11,12 @@ public class Quest
         ID = id;
         QuestDescription = questDescription;
         QuestObjective = questObjective;
+        Rewards = new List<weapon>();
+    }
+
+    public void AddReward(Weapon reward)
+    {
+        Rewards.Add(reward);
     }
 
 }
