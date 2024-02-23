@@ -1,13 +1,24 @@
 
 namespace miniproj
-public class Weapon
 {
-    public int AddedPower = 10;
-    public bool IsEquipped;
-
-    public Weapon(int addedPower, bool isEquipped)
+    public class Weapon
     {
-        AddedPower = addedPower;
-        IsEquipped = isEquipped;
+        public enum WeaponType
+        {
+            Sword,
+            Axe,
+            Bow,
+        }
+
+        public int AddedPower = 10;
+        public bool IsEquipped;
+        public WeaponType Type;
+
+        public Weapon(int addedPower, bool isEquipped, WeaponType type)
+        {
+            AddedPower = addedPower;
+            IsEquipped = isEquipped;
+            Type = type;
+        }
     }
 }

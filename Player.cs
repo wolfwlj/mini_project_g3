@@ -1,6 +1,5 @@
 
 namespace miniproj
-public class Player
 {
     public string PlayerName;
     public bool Equipped;
@@ -20,36 +19,63 @@ public class Player
         PotionInventory = new List<Potion>();
     }
 
-
-    public string GetXP(int xp)
-    {
-        int nextLevel = PlayerXP * 50;
-        PlayerXP += xp;
-        if (PlayerXP >= nextLevel)
+        public Player(string name)
         {
-            PlayerLevel++;
-            PlayerXP = xp - nextLevel;
-            return $"You have leveled up! Your current level is {PlayerLevel}";
+            PlayerName = name;
+            Inventory = new List<Weapon>();
+            ActiveQuests = new List<Quest>();
         }
-        return $"EXP gained: {xp}/{nextLevel}";
-    }
 
-    public string RecoverHealth(int hp)
-    {
-        if (HealthPoints == 100;)
+        public string GetXP(int xp)
         {
-            return "You are already at full health, no need to heal!";
+            int nextLevel = PlayerLevel * 50;
+            PlayerXP += xp;
+            if (PlayerXP >= nextLevel)
+            {
+                PlayerLevel++;
+                PlayerXP -= nextLevel;
+                return $"You have leveled up! Your current level is {PlayerLevel}";
+            }
+            return $"EXP gained: {xp}/{nextLevel}";
         }
-        HealthPoints += hp;
-        return $"Good healing! Your are now at {HealthPoints} HP";
-    }
 
-    public int Attack()
-    {
-        if (Equipped)
+        public string RecoverHealth(int hp)
         {
-            return Damage * 2;
+            if (HealthPoints == 100)
+            {
+                return "You are already at full health, no need to heal!";
+            }
+            HealthPoints += hp;
+            return $"Good healing! Your are now at {HealthPoints} HP";
         }
-        return Damage;
+
+        public void CompleteQuest(Quest completeQuest)
+        {
+            foreach (var item in completeQuest.Rewards)
+            {
+                if (item is Weapon weapon)
+                {
+                    Inventory.Add(weapon);
+                }
+            }
+            ActiveQuests.Remove(completeQuest);
+        }
+
+        public void WinFight()
+        {
+            Random random = new Random();
+            int randomPower = random.Next(5, 20);
+            Weapon randomWeapon = new Weapon(randomPower, false);
+            Inventory.Add(randomWeapon);
+        }
+
+        public int Attack()
+        {
+            if (Equipped)
+            {
+                return Damage * 2;
+            }
+            return Damage;
+        }
     }
 }
