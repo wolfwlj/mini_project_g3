@@ -9,6 +9,7 @@ public class Player
     public int PlayerLevel = 1;
     public int PlayerXP = 1;
     public List<Weapon> Inventory;
+    public List<Potion> PotionInventory;
     public List<Quest> ActiveQuests;
 
     public Player(string name)
@@ -16,6 +17,7 @@ public class Player
         PlayerName = name;
         Inventory = new List<Weapon>();
         ActiveQuests = new List<Quest>();
+        PotionInventory = new List<Potion>();
     }
 
 

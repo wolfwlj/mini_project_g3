@@ -8,13 +8,10 @@ public class Monster
     public int Health = 150;
     public bool Equipped;
 
-    public Monster(int id, string monsterName, int power, bool equipped, int health)
+    public Monster(string monsterName, bool equipped)
     {
-        ID = id;
         MonsterName = monsterName;
-        Power = power;
         Equipped = equipped;
-        Health = health;
     }
 
     public int Attack()
