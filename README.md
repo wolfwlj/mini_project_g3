@@ -1,1 +1,0 @@
-# mini_project_g3
