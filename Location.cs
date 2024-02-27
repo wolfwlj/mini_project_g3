@@ -1,6 +1,4 @@
-
-namespace miniproj
-{
+using System;
     public class Location
     {
         public int ID;
@@ -25,4 +23,3 @@ namespace miniproj
 
         public void PopulateMap(){}
     }
-}

@@ -1,20 +1,24 @@
+using System;
 
-namespace miniproj
-{
     public class Monster
     {
         public int ID;
         public string MonsterName;
-        public int Power = 30;
-        public int Health = 150;
+        public int Health = 120;
 
         public int Damage = 20;
         public bool Equipped;
+        public int Num1;
+        public int Num2;
+        public int Num3;
 
-        public Monster(string monsterName, bool equipped)
+        public Monster(int id, string monsterName, int num1, int num2, int num3)
         {
+            ID = id;
             MonsterName = monsterName;
-            Equipped = equipped;
+            Num1 = num1;
+            Num2 = num2;
+            Num3 = num3;
         }
 
         public int Attack()
@@ -26,4 +30,3 @@ namespace miniproj
             return Damage;
         }
     }
-}

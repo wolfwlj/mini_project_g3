@@ -1,6 +1,4 @@
-
-namespace miniproj
-{
+using System;
     public static class World
     {
 
@@ -207,4 +205,3 @@ namespace miniproj
             return null;
         }
     }
-}

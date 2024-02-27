@@ -1,5 +1,4 @@
-namespace miniproj
-{
+using System;
     public class Potion
     {
         public string PotionType;
@@ -11,4 +10,3 @@ namespace miniproj
             HealthGiven = healthGiven;
         }
     }
-}
