@@ -1,26 +1,29 @@
 
 namespace miniproj
-public class Monster
 {
-    public int ID;
-    public string MonsterName;
-    public int Power = 30
-    public int Health = 150;
-    public bool Equipped;
-
-    public Monster(string monsterName, bool equipped)
+    public class Monster
     {
-        MonsterName = monsterName;
-        Equipped = equipped;
-    }
+        public int ID;
+        public string MonsterName;
+        public int Power = 30
+        public int Health = 150;
 
-    public int Attack()
-    {
-        if (Equipped)
+        public int Damage = 20;
+        public bool Equipped;
+
+        public Monster(string monsterName, bool equipped)
         {
-            return Damage * 2;
+            MonsterName = monsterName;
+            Equipped = equipped;
         }
-        return Damage;
-    }
 
+        public int Attack()
+        {
+            if (Equipped)
+            {
+                return Damage * 2;
+            }
+            return Damage;
+        }
+    }
 }

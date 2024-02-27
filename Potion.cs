@@ -1,13 +1,14 @@
 namespace miniproj
-
-public class Potion
 {
-    public string PotionType;
-    public int HealthGiven;
-
-    public Potion(string potionType, int healthGiven)
+    public class Potion
     {
-        PotionType = potionType;
-        HealthGiven = healthGiven;
+        public string PotionType;
+        public int HealthGiven;
+
+        public Potion(string potionType, int healthGiven)
+        {
+            PotionType = potionType;
+            HealthGiven = healthGiven;
+        }
     }
 }
