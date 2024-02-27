@@ -1,3 +1,4 @@
+using System;
 
 namespace miniproj
 {
@@ -39,7 +40,7 @@ namespace miniproj
             return $"EXP gained: {xp}/{nextLevel}";
         }
 
-        public string RecoverHealth(int hp)
+        public static string RecoverHealth(int hp)
         {
             if (HealthPoints == 100)
             {

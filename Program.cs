@@ -10,7 +10,7 @@ public class Program
     player1.PotionInventory.Add(smallPotion);
     public static void Main()
     {
-        Fight(player1, monster1)
+        Fight(player1, monster1);
     }
     public static bool Fight(Player player, Monster monster)
     {
