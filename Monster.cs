@@ -5,7 +5,7 @@ namespace miniproj
     {
         public int ID;
         public string MonsterName;
-        public int Power = 30
+        public int Power = 30;
         public int Health = 150;
 
         public int Damage = 20;
