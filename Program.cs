@@ -1,4 +1,4 @@
-namespace miniproj  
+﻿namespace miniproj  
 
 public class Program
 {
@@ -20,16 +20,16 @@ public class Program
             char input = Console.ReadLine()[0];
             if (char.ToUpper(input) == 'E')
             {
-               if (player.PotionInventory.Count >= 1)
-               {
-                Potion usedPotion = player.PotionInventory[0];
-                player.HealthPoints += usedPotion.HealthGiven;
-                Console.WriteLine($"You've used a {usedPotion.PotionType} replenishing your health by {usedPotion.HealthGiven}");
-               }
-               else
-               {
-                Console.WriteLine("You have no potions in your inventory...");
-               }
+                if (player.PotionInventory.Count >= 1)
+                {
+                    Potion usedPotion = player.PotionInventory[0];
+                    player.HealthPoints += usedPotion.HealthGiven;
+                    Console.WriteLine($"You've used a {usedPotion.PotionType} replenishing your health by {usedPotion.HealthGiven}");
+                }
+                else
+                {
+                    Console.WriteLine("You have no potions in your inventory...");
+                }
             }
             else if (char.ToUpper(input) == 'Q')
             {
