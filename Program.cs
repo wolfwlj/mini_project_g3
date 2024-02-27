@@ -1,5 +1,4 @@
-﻿namespace miniproj  
-using System;
+﻿using System;
 
 namespace miniproj  
 {
