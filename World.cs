@@ -70,20 +70,17 @@ namespace miniproj
                     "Clear the alchemist's garden",
                     "Kill rats in the alchemist's garden ");
 
-
-
             Quest clearFarmersField =
                 new Quest(
                     QUEST_ID_CLEAR_FARMERS_FIELD,
                     "Clear the farmer's field",
                     "Kill snakes in the farmer's field");
 
-
             Quest clearSpidersForest =
-                        new Quest(
-                            QUEST_ID_COLLECT_SPIDER_SILK,
-                            "Collect spider silk",
-                            "Kill spiders in the spider forest");
+                new Quest(
+                    QUEST_ID_COLLECT_SPIDER_SILK,
+                    "Collect spider silk",
+                    "Kill spiders in the spider forest");
 
 
             Quests.Add(clearAlchemistGarden);
