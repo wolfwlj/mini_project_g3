@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
     public class Program
     {
@@ -16,6 +15,8 @@ using System;
             player1.PotionInventory.Add(bigPotion);
         //  public Location(int id, string locName, string desc, Quest? quest, Monster? monster)
             World.PopulateLocations();
+            Menu();
+
             Fight(player1, monster1);
         }
 
@@ -94,20 +95,12 @@ using System;
                 }
             }
         }
-
-
-       
-
-
-        
-
         public static void Menu()
         {
-            Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home. (i recommend moving)");
-            Console.WriteLine($"Your current location is {Locations[0]}, you may choose where to go");
+            Map map = new Map();
 
+            Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home. (i recommend moving)");
+            // Console.WriteLine($"Your current location is {map.Locations[0]}, you may choose where to go");
+            Console.WriteLine(World.LocationByID(map.locations[(0, 0)]).LocationName);
         }
     }
-
-
-    

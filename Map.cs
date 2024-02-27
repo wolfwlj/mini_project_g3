@@ -3,11 +3,11 @@ using System;
 public class Map
 {
     
-    private Dictionary<(int, int), int> questLocations;
+    public Dictionary<(int, int), int> questLocations;
 
-    private int x;
-    private int y;
-    private Dictionary<(int, int), int> locations;
+    public int x;
+    public int y;
+    public Dictionary<(int, int), int> locations;
     public Map()
     {
         x = 0;
@@ -30,23 +30,24 @@ public class Map
             {(-2, 1), World.QUEST_ID_CLEAR_FARMERS_FIELD}, 
             {(3, 1), World.QUEST_ID_COLLECT_SPIDER_SILK}
         };
-
+    }
         public void Move(string direction)
         {
-            switch (direction.ToLower())
+            if (direction == "north")
             {
-                case "north":
-                    if (x == 0 && y == 3)
-                    {
-                        Console.WriteLine("You cannot go further north, pick a different direction");
-                        break;
-                    }
-                    else
-                    {
-                        y++;
-                    }
+                y++;
+            }
+            else if (direction == "south")
+            {
+                y--;
+            }
+            else if (direction == "east")
+            {
+                x++;
+            }
+            else if (direction == "west")
+            {
+                x--;
             }
         }
-
-    }
 }
