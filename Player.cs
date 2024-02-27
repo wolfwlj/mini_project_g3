@@ -2,29 +2,24 @@ using System;
 
 namespace miniproj
 {
-    public string PlayerName;
-    public bool Equipped;
-    public int HealthPoints = 100;
-    public int Damage = 10;
-    public int PlayerLevel = 1;
-    public int PlayerXP = 1;
-    public List<Weapon> Inventory;
-    public List<Potion> PotionInventory;
-    public List<Quest> ActiveQuests;
-
-    public Player(string name)
+    public class Player
     {
-        PlayerName = name;
-        Inventory = new List<Weapon>();
-        ActiveQuests = new List<Quest>();
-        PotionInventory = new List<Potion>();
-    }
+        public string PlayerName;
+        public bool Equipped;
+        public int HealthPoints = 100;
+        public int Damage = 10;
+        public int PlayerLevel = 1;
+        public int PlayerXP = 1;
+        public List<Weapon> Inventory;
+        public List<Potion> PotionInventory;
+        public List<Quest> ActiveQuests;
 
         public Player(string name)
         {
             PlayerName = name;
             Inventory = new List<Weapon>();
             ActiveQuests = new List<Quest>();
+            PotionInventory = new List<Potion>();
         }
 
         public string GetXP(int xp)
