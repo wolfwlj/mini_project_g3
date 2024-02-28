@@ -9,20 +9,36 @@ public class Program
 
 
         Player player1 = new Player("p1");
-        Monster monster1 = new Monster(1, "Golem", 1, 4, 4);
+        // Monster monster1 = new Monster(1, "Golem", 1, 4, 4);
         Weapon starterWeapon = new Weapon(1, "rusty sword", 3);
         player1.Inventory.Add(starterWeapon);
         Potion smallPotion = new Potion("A small health potion", 20);
         player1.PotionInventory.Add(smallPotion);
-        Potion bigPotion = new Potion("A big health potion. Not easily found", 100);
-        player1.PotionInventory.Add(bigPotion);
-    //  public Location(int id, string locName, string desc, Quest? quest, Monster? monster)
+
+        // veel potions want je kan ze nog niet vinden in de wereld(denk ik)
+        Potion bigPotion1 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion1);
+
+        Potion bigPotion2 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion2);
+
+        Potion bigPotion3 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion3);
+        
+        Potion bigPotion4 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion4);
+        
+        Potion bigPotion5 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion5);
+        
+        Potion bigPotion6 = new Potion("A big health potion.", 100);
+        player1.PotionInventory.Add(bigPotion6);
+
         World.PopulateLocations();
         
         Map map = new Map();
 
         Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home. (i recommend moving)");
-        
 
         while (playing)
         {
@@ -31,18 +47,51 @@ public class Program
             if (input == "1")
             {
                 Movement(map);
-                map.CheckForQuests(player1);
                 // check if the location has a quest
-
-
-
+                map.CheckForQuests(player1);
+                // check if the location has a monster
+                
+                for (int i = 0; i < World.Monsters.Count; i++)
+                {
+                    if (World.Monsters[i].Location == (map.x, map.y))
+                    {
+                        Monster monster = World.Monsters[i];
+                        if (Fight(player1, monster))
+                        {
+                            player1.WinFight();
+                        } else
+                        {
+                            Console.WriteLine("You have been defeated, you will be relocated to your home.");
+                            map.x = 0;
+                            map.y = 0;
+                        }
+                    }
+                }
             }
+            else if (input == "2"){
+                Console.WriteLine("You have the following items in your inventory:");
+                foreach (var item in player1.Inventory)
+                {
+                    Console.WriteLine(item.WeaponType);
+                }
+                Console.WriteLine("You have the following potions in your inventory:");
+                foreach (var item in player1.PotionInventory)
+                {
+                    Console.WriteLine(item.PotionType);
+                }
+            }
+            else if (input == "3")
+            {
+                Console.WriteLine($"Your current health is: {player1.HealthPoints}");
+                Console.WriteLine($"Your current level is: {player1.PlayerLevel}");
+                Console.WriteLine($"Your current XP is: {player1.PlayerXP}");
+            }
+
             else if (input == "4")
             {
                 Console.WriteLine($"You are here: {World.LocationByID(map.locations[(map.x, map.y)]).LocationName}");
                 // tell player what locations are adjacent
                 map.ShowDirections();
-            
             }
             else if (input == "5")
             {

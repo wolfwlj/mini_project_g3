@@ -46,18 +46,17 @@ using System;
 
         public static void PopulateMonsters()
         {
-            Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3);
+            // add location to monster class
 
-
-            Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7);
-
-
-            Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
-
+            Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3, (0, 1));
+            Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7, (0, 2));
+            Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10, (0, 3));
+            Monster giantSpider2 = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10, (-2, 1));
 
             Monsters.Add(rat);
             Monsters.Add(snake);
             Monsters.Add(giantSpider);
+            Monsters.Add(giantSpider2);
         }
 
         public static void PopulateQuests()
@@ -182,8 +181,6 @@ using System;
 
             return null;
         }
-
-
 
         public static Monster MonsterByID(int id)
         {
