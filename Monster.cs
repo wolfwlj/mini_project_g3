@@ -4,7 +4,7 @@ using System;
     {
         public int ID;
         public string MonsterName;
-        public int Health = 120;
+        public int Health = 60;
         public int Damage = 20;
         public bool Equipped;
         public int Num1;

@@ -38,7 +38,7 @@ public class Program
         
         Map map = new Map();
 
-        Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home. (i recommend moving)");
+        Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home.");
 
         while (playing)
         {
