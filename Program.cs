@@ -31,11 +31,18 @@ public class Program
             if (input == "1")
             {
                 Movement(map);
+                map.CheckForQuests(player1);
+                // check if the location has a quest
+
+
+
             }
             else if (input == "4")
             {
-                Console.WriteLine("You are here: ");
-                Console.WriteLine(World.LocationByID(map.locations[(map.x, map.y)]).LocationName);
+                Console.WriteLine($"You are here: {World.LocationByID(map.locations[(map.x, map.y)]).LocationName}");
+                // tell player what locations are adjacent
+                map.ShowDirections();
+            
             }
             else if (input == "5")
             {
@@ -101,17 +108,12 @@ public class Program
         }
         return true;
     }
-
-    public static void Walk(Player player)
-    {
-        Console.WriteLine("");
-    }
     public static void Movement(Map map)
     {
 
-            Console.Write("Enter a direction (North, East, South, West)");
+            Console.Write("Enter a direction (North, East, South, West) : ");
             string input = Console.ReadLine()!.Trim();
-
+            input = input.ToLower();
             if (input == "north" || input == "south" || input == "east" || input == "west")
             {
                 map.Move(input);
