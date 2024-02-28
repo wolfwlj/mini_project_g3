@@ -1,29 +1,23 @@
+using System;
 
-namespace miniproj
-{
-    public string PlayerName;
-    public bool Equipped;
-    public int HealthPoints = 100;
-    public int Damage = 10;
-    public int PlayerLevel = 1;
-    public int PlayerXP = 1;
-    public List<Weapon> Inventory;
-    public List<Potion> PotionInventory;
-    public List<Quest> ActiveQuests;
-
-    public Player(string name)
+    public class Player
     {
-        PlayerName = name;
-        Inventory = new List<Weapon>();
-        ActiveQuests = new List<Quest>();
-        PotionInventory = new List<Potion>();
-    }
+        public string PlayerName;
+        public bool Equipped;
+        public int HealthPoints = 100;
+        public int Damage = 15;
+        public int PlayerLevel = 1;
+        public int PlayerXP = 1;
+        public List<Weapon> Inventory;
+        public List<Potion> PotionInventory;
+        public List<Quest> ActiveQuests;
 
         public Player(string name)
         {
             PlayerName = name;
             Inventory = new List<Weapon>();
             ActiveQuests = new List<Quest>();
+            PotionInventory = new List<Potion>();
         }
 
         public string GetXP(int xp)
@@ -39,15 +33,6 @@ namespace miniproj
             return $"EXP gained: {xp}/{nextLevel}";
         }
 
-        public string RecoverHealth(int hp)
-        {
-            if (HealthPoints == 100)
-            {
-                return "You are already at full health, no need to heal!";
-            }
-            HealthPoints += hp;
-            return $"Good healing! Your are now at {HealthPoints} HP";
-        }
 
         public void CompleteQuest(Quest completeQuest)
         {
@@ -65,7 +50,7 @@ namespace miniproj
         {
             Random random = new Random();
             int randomPower = random.Next(5, 20);
-            Weapon randomWeapon = new Weapon(randomPower, false);
+            Weapon randomWeapon = new Weapon(2, "Well crafted iron sword", 10);
             Inventory.Add(randomWeapon);
         }
 
@@ -78,4 +63,3 @@ namespace miniproj
             return Damage;
         }
     }
-}
