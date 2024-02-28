@@ -35,19 +35,49 @@ public class Map
         {
             if (direction == "north")
             {
-                y++;
+
+                // check if the location is valid
+                if (locations.ContainsKey((x, y + 1)))
+                {
+                    y++;
+                }
+                else
+                {
+                    Console.WriteLine("You cannot move in that direction.");
+                }
             }
             else if (direction == "south")
             {
-                y--;
+                if (locations.ContainsKey((x, y - 1)))
+                {
+                    y--;
+                }
+                else
+                {
+                    Console.WriteLine("You cannot move in that direction.");
+                }
             }
             else if (direction == "east")
             {
-                x++;
+                if (locations.ContainsKey((x + 1, y)))
+                {
+                    x++;
+                }
+                else
+                {
+                    Console.WriteLine("You cannot move in that direction.");
+                }
             }
             else if (direction == "west")
             {
-                x--;
+                if (locations.ContainsKey((x - 1, y)))
+                {
+                    x--;
+                }
+                else
+                {
+                    Console.WriteLine("You cannot move in that direction.");
+                }
             }
         }
 }
