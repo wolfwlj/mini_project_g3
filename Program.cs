@@ -39,7 +39,7 @@ public class Program
         player1.PotionInventory.Add(bigPotion6);
 
         Console.WriteLine($"Welcome to the game {playerName}! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home.");
-    
+        Console.WriteLine("You are currently at your home.");
 
         while (playing)
         {
@@ -178,7 +178,29 @@ public class Program
                 }
                 else if (monster.Health <= 0)
                 {
-                    Console.WriteLine("You have beaten the monster in epic grandeur! Loot his corpse for potential items.");
+                    Console.WriteLine("You have beaten the monster in epic grandeur.");
+                    if(monster.ID == 1)
+                    {
+                        player.Inventory.Add(new Weapon(2, "Club", 10));
+                        Console.WriteLine("You have received a club from the monster.");
+
+                    }
+                    else if(monster.ID == 2)
+                    {
+                        player.Inventory.Add(new Weapon(3, "Snake skin", 15));
+                        Console.WriteLine("You have received a Snake skin from the monster.");
+                    }
+                    else if(monster.ID == 3)
+                    {
+                        player.Inventory.Add(new Weapon(4, "Giant Spider Fang", 15));
+                        Console.WriteLine("You have received a Giant Spider Fang from the monster.");
+                    }
+                    else if(monster.ID == 4)
+                    {
+                        player.Inventory.Add(new Weapon(5, "Giant Spider Fang", 15));
+                        Console.WriteLine("You have received a Giant Spider Fang from the monster.");
+                    }
+                    
                     return true;
                 }
             }
