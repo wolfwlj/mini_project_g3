@@ -21,4 +21,11 @@ public class Quest
         Rewards.Add(reward);
     }
 
+    public List<Weapon> GetRewards()
+    {
+        return Rewards;
+    }
+
 }
+
+
