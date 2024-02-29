@@ -8,9 +8,15 @@ public class Program
         bool playing = true;
 
 
-        Player player1 = new Player("p1");
         // Monster monster1 = new Monster(1, "Golem", 1, 4, 4);
         Weapon starterWeapon = new Weapon(1, "rusty sword", 3);
+        World.PopulateLocations();
+        
+        Map map = new Map();
+
+        Console.WriteLine("Enter the name you would like to be known as: ");
+        string playerName = Console.ReadLine();
+        Player player1 = new Player(playerName);
         player1.Inventory.Add(starterWeapon);
         Potion smallPotion = new Potion("A small health potion", 20);
         player1.PotionInventory.Add(smallPotion);
@@ -34,11 +40,8 @@ public class Program
         Potion bigPotion6 = new Potion("A big health potion.", 100);
         player1.PotionInventory.Add(bigPotion6);
 
-        World.PopulateLocations();
-        
-        Map map = new Map();
-
-        Console.WriteLine("Welcome to the game player! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home.");
+        Console.WriteLine($"Welcome to the game {playerName}! You have awoken from a deep slumber in your humble abode, you may move elsewhere or enjoy the calm and peace of your home.");
+    
 
         while (playing)
         {
@@ -95,6 +98,7 @@ public class Program
             }
             else if (input == "5")
             {
+                Console.WriteLine($"Fare thee well {playerName}, and godspeed!");
                 playing = false;
             }
             else
