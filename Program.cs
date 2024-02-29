@@ -77,6 +77,8 @@ public class Program
                     if (action == "kill")
                     {
                         Console.WriteLine("You've successfully killed all the snakes in the field!");
+                        Console.WriteLine("CONGRATULATIONS, YOU HAVE FINISHED THE GAME!!!");
+                        playing = false;
                     }
                     else
                     {
