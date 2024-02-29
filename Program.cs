@@ -63,7 +63,6 @@ public class Program
                         } 
                         else
                         {
-                            Console.WriteLine("You have been defeated, you will be relocated to your home.");
                             map.x = 0;
                             map.y = 0;
                         }
@@ -135,6 +134,7 @@ public class Program
     public static bool Fight(Player player, Monster monster)
     {
         Console.WriteLine($"You've encountered a {monster.MonsterName}, a powerful foe. Choose your next move wisely tarnished.");
+        Console.WriteLine($"Remember, your current health stands at {player.HealthPoints}");
         while (monster.Health > 0 || player.HealthPoints > 0) 
         {
             Console.WriteLine();
@@ -159,11 +159,18 @@ public class Program
                 Console.WriteLine("You have chosen to attack, bold move...");
                 Console.WriteLine();
                 Console.WriteLine($"You have attacked {monster.MonsterName} for {player.Attack()} damage but beware, as he will strike back.");
-                Console.WriteLine($"The {monster.MonsterName} has striked back, dealing a total of {monster.Attack()} damage on you, goddamn.");
+                Console.WriteLine($"The {monster.MonsterName} has striked back, dealing a total of {monster.Attack()} damage on you.");
                 monster.Health -= player.Attack();
                 player.HealthPoints -= monster.Attack();
                 Console.WriteLine();
-                Console.WriteLine($"Your current health stands at {player.HealthPoints}, the monster has {monster.Health} health remaining, interesting...");
+                if (monster.Health > 0)
+                {
+                    Console.WriteLine($"Your current health stands at {player.HealthPoints}, the monster has {monster.Health} health remaining, interesting...");
+                }
+                else if (monster.Health == 0 || player.HealthPoints == 0)
+                {
+                    Console.WriteLine($"Your current health stands at {player.HealthPoints}, the monster has {monster.Health} health remaining, meaning: ");
+                }
                 if (player.HealthPoints <= 0)
                 {
                     Console.WriteLine("Your journey has come to an end tarnished, you will be relocated at your home where you may start again.");
