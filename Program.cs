@@ -2,11 +2,9 @@
 
 public class Program
 {
-
     public static void Main()
     {
         bool playing = true;
-
 
         // Monster monster1 = new Monster(1, "Golem", 1, 4, 4);
         Weapon starterWeapon = new Weapon(1, "rusty sword", 3);
@@ -62,7 +60,8 @@ public class Program
                         if (Fight(player1, monster))
                         {
                             player1.WinFight();
-                        } else
+                        } 
+                        else
                         {
                             Console.WriteLine("You have been defeated, you will be relocated to your home.");
                             map.x = 0;
@@ -70,8 +69,34 @@ public class Program
                         }
                     }
                 }
+
+                if (map.x == 2 && map.y == 2)
+                {
+                    Console.WriteLine("You are now at the farmer's field.");
+                    Console.WriteLine("Quick! Kill the snakes by typing 'kill'.");
+
+                    string action = Console.ReadLine()?.ToLower();
+
+                    if (action == "kill")
+                    {
+                        Console.WriteLine("You've successfully killed all the snakes in the field!");
+                        Console.WriteLine("CONGRATULATIONS, YOU HAVE FINISHED THE GAME!!!");
+                        playing = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Oh no, the snake bit you!");
+                        player1.HealthPoints -= 10; // 10 damage from each snake bite
+                        if (player1.HealthPoints <= 0)
+                        {
+                            Console.WriteLine("No health left. Game over :(");
+                            playing = false; // This is for the game over (when you have no health left)
+                        }
+                    }
+                }
             }
-            else if (input == "2"){
+            else if (input == "2")
+            {
                 Console.WriteLine("You have the following items in your inventory:");
                 foreach (var item in player1.Inventory)
                 {
@@ -89,7 +114,6 @@ public class Program
                 Console.WriteLine($"Your current level is: {player1.PlayerLevel}");
                 Console.WriteLine($"Your current XP is: {player1.PlayerXP}");
             }
-
             else if (input == "4")
             {
                 Console.WriteLine($"You are here: {World.LocationByID(map.locations[(map.x, map.y)]).LocationName}");
@@ -106,9 +130,6 @@ public class Program
                 Console.WriteLine("Invalid input, try again.");
             }
         }
-
-
-        // Fight(player1, monster1);
     }
 
     public static bool Fight(Player player, Monster monster)
@@ -161,18 +182,19 @@ public class Program
         }
         return true;
     }
+
     public static void Movement(Map map)
     {
-
-            Console.Write("Enter a direction (North, East, South, West) : ");
-            string input = Console.ReadLine()!.Trim();
-            input = input.ToLower();
-            if (input == "north" || input == "south" || input == "east" || input == "west")
-            {
-                map.Move(input);
-            } else
-            {
-                Console.Write("Invalid input");
-            }
+        Console.Write("Enter a direction (North, East, South, West) : ");
+        string input = Console.ReadLine()!.Trim();
+        input = input.ToLower();
+        if (input == "north" || input == "south" || input == "east" || input == "west")
+        {
+            map.Move(input);
+        } 
+        else
+        {
+            Console.Write("Invalid input");
+        }
     }
 }
